@@ -8,7 +8,7 @@ services:
       - ./:/var/www/html
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
     networks:
-      - paterns
+      - patternsphp
   php:
     build:
       context: .
@@ -16,7 +16,7 @@ services:
     volumes:
       - ./:/var/www/html
     networks:
-      - paterns
+      - patternsphp
     depends_on:
       - web
       - database
@@ -28,9 +28,9 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: 1
     volumes:
       - ./docker/mysql:/etc/mysql/conf.d
-      - paterns_data:/var/lib/mysql
+      - patternsphp_data:/var/lib/mysql
     networks:
-      - paterns
+      - patternsphp
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
@@ -40,11 +40,11 @@ services:
     links:
       - "database:db"
     networks:
-      - paterns
+      - patternsphp
 networks:
-  paterns:
-    name: paterns
+  patternsphp:
+    name: patternsphp
     driver: bridge
 volumes:
-  paterns_data:
+  patternsphp_data:
     driver: local
