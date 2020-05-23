@@ -1,0 +1,14 @@
+version: '3.6'
+services:
+  node:
+    build:
+      context: .
+    ports:
+      - "3000:3000"
+    restart: always
+    networks:
+      - patternsnode
+networks:
+  patternsnode:
+    name: patternsnode
+    driver: bridge
