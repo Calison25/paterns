@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/singleton', function () {
+    $singletonController = new \App\Patterns\Singleton\Classes\Controller\SingletonController();
+    $singletonController->create();
+});
