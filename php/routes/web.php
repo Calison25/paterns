@@ -20,3 +20,9 @@ Route::get('/singleton', function () {
     $singletonController = new \App\Patterns\Singleton\Classes\Controller\SingletonController();
     $singletonController->create();
 });
+
+
+Route::get('/strategy', function () {
+    $strategyController = new \App\Patterns\Strategy\Classes\Controller\StrategyController();
+    $strategyController->create();
+});
